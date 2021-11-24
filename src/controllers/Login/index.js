@@ -14,10 +14,11 @@ export const  validateForm = (values)=>{
  * Submit credentials and save a user token
  * @param {*} obj object with credentials user(email,password)
  */
-export const submitCredentials= async (credentials)=>{ 
+export const submitCredentials= async (credentials,history)=>{ 
     try{ 
        const {data} =  await axios.post("http://challenge-react.alkemy.org",credentials); 
         window.localStorage.setItem('user',data.token);
+        history.push("/home");
     }catch(error){
         alert("Ingrese creedenciales validas")
     }
