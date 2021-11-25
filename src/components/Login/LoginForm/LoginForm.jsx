@@ -26,7 +26,7 @@ const LoginForm = ()=> {
                             <div className={style.containerCenter}>   
                             <button className={style.btnPrimary} type="submit">Login</button>
                             </div>
-                              {errors.emptyFields && <p className={style.error}>{errors.emptyFields}</p>}
+                              {errors.emptyFields && <p className="error">{errors.emptyFields}</p>}
                         </Form>
                     )
                 }
