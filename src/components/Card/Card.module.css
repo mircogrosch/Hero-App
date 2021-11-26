@@ -44,7 +44,10 @@
     background-color:#2C2133;
     width:100%;
     margin-top:5px;
+    border: none;
+
   }
   .button:hover{
+    transition: ease 0.5s all;
     color: #483C50;
   }

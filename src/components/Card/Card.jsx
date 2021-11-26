@@ -1,6 +1,10 @@
 import React from "react";
 import style from "./Card.module.css";
 import PowerStats from "../Home/PowerStats/PowerStats";
+import { addHeroToMyTeam,deleteHero } from "../../redux/actions/index";
+import { isOnMyTeam } from "../../controllers/Card";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 const Card = ({
   id,
   img,
@@ -12,16 +16,19 @@ const Card = ({
   power,
   combat,
 }) => {
+    //HOOKS
+  const dispatch = useDispatch();
+  const myTeam = useSelector((state) => state.myTeam);
   return (
-    <div class={style.cartBox}>
-      <div class={style.cart}>
-        <div class={style.face}>
-          <img src={img} width="200" height="250px" alt="Hero"/>
-          <div className={style.containerHeroName}> 
+    <div className={style.cartBox}>
+      <div className={style.cart}>
+        <div className={style.face}>
+          <img src={img} width="200" height="250px" alt="Hero" />
+          <div className={style.containerHeroName}>
             <h1 className={style.textName}>{name}</h1>
           </div>
         </div>
-        <div class={`${style.face} ${style.back}`}>
+        <div className={`${style.face} ${style.back}`}>
           <PowerStats
             intelligence={intelligence}
             strength={strenght}
@@ -31,12 +38,23 @@ const Card = ({
             combat={combat}
             resize={true}
           />
-          <button className={`btn ${style.button}`}>
+          {isOnMyTeam(myTeam, id) ? (
+            <button
+              className={`${style.button}`}
+              onClick={() => dispatch(deleteHero(id))}
+            >
+              Remove from team
+            </button>
+          ) : (
+            <button
+              className={`${style.button}`}
+              onClick={() => dispatch(addHeroToMyTeam(id))}
+            >
               Add to my team
-          </button>
-          <button className={`btn ${style.button}`}>
-            View Details    
-          </button> 
+            </button>
+          )}
+
+          <button className={`${style.button}`}>View Details</button>
         </div>
       </div>
     </div>
