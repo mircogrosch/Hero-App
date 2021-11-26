@@ -9,22 +9,38 @@ const ContainerCard = () => {
     <div className={style.root}>
       {heroSearch?.length ? (
         heroSearch.map((hero) => (
-          <div className="col-md-4 col-lg-4 col-xs-12">     
-          <Card
-            img={hero.image.url}
-            name={hero.name}
-            intelligence={hero.powerstats.intelligence}
-            strenght={hero.powerstats.strenght}
-            speed={hero.powerstats.speed}
-            durability={hero.powerstats.durability}
-            power={hero.powerstats.power}
-            combat={hero.powerstats.combat}
-            id={hero.id}
-          />
+          <div className="col-md-4 col-lg-4 col-xs-12">
+            <Card
+              key={hero.id}
+              img={hero.image.url}
+              name={hero.name}
+              intelligence={hero.powerstats.intelligence}
+              strenght={hero.powerstats.strenght}
+              speed={hero.powerstats.speed}
+              durability={hero.powerstats.durability}
+              power={hero.powerstats.power}
+              combat={hero.powerstats.combat}
+              id={hero.id}
+            />
           </div>
         ))
       ) : team?.length ? (
-        <Card />
+        team.map((hero) => (
+          <div className="col-md-4 col-lg-4 col-xs-12">
+            <Card
+              key={hero.id}
+              img={hero.image.url}
+              name={hero.name}
+              intelligence={hero.powerstats.intelligence}
+              strenght={hero.powerstats.strenght}
+              speed={hero.powerstats.speed}
+              durability={hero.powerstats.durability}
+              power={hero.powerstats.power}
+              combat={hero.powerstats.combat}
+              id={hero.id}
+            />
+          </div>
+        ))
       ) : (
         <h1>You haven't a team, please search hero and add</h1>
       )}

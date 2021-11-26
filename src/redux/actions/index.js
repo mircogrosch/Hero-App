@@ -19,3 +19,19 @@ export const getHerosByName = (heroName)=>{
         }
     }
 }
+export const clearSearch = ()=> { 
+    return {
+        type: types.CLEAR_SEARCH
+    }
+}
+export const addHeroToMyTeam = (idHero)=>{ 
+    return {
+        type:types.ADD_HERO_TO_MY_TEAM, payload:idHero
+    }
+}
+
+export const deleteHero = (idHero)=> { 
+    return{ 
+        type: types.DELETE_HERO, payload: idHero
+    }
+}
