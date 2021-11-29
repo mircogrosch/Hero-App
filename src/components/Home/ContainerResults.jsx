@@ -15,6 +15,7 @@ const ContainerResults = () => {
   const myTeam = useSelector((state) => state.myTeam);
 
   //LOCAL STATE
+  const [averages, setAverages] = useState({heigth:0,weigth:0})
   const [teamCategorization, setTeamCategorization] = useState('');
   const [totalPowerStats, setTotalPowerStats] = useState({
     intelligence: 0,
@@ -42,22 +43,23 @@ const ContainerResults = () => {
   
     sumPowerStatsTeam(handleSetTotalPowerStats, myTeam);
     changeCategorization(handleSetTeamCategorization)
-    averageHeight(myTeam);
-    avarageWeight(myTeam)
+    setAverages({heigth:averageHeight(myTeam), weigth:avarageWeight(myTeam)});
     
   }, [myTeam]);
-
-  // useEffect(()=>{
-   
-  // },[myTeam]);
-
 
   return (
     <div className={`container ${style.root}`}>
       <div className="row">
         <div className="col-md-6 col-lg-6">
           <div className={style.text}> 
-          {myTeam.length && <h1 >Team {teamCategorization}</h1> } 
+          {heroesSearch?.length ? 
+           false
+           : myTeam.length && <>
+           <h1>Team {teamCategorization}</h1> 
+           <span className={style.averages}>Average Heigth: {averages.heigth} cm</span> 
+           <span className={style.averages}>Average Weigth: {averages.weigth} kg</span> 
+           </>
+          } 
           </div>
           <div className={style.serachBar}>
             <SearchBar />
@@ -67,7 +69,7 @@ const ContainerResults = () => {
         <div className="col-md-6 col-lg-6">
           {heroesSearch?.length ? (
             <Link to="/home">
-              <button>View My Team</button>
+              <button className={style.viewTeam}>View My Team</button>
             </Link>
           ) : ( 
             
