@@ -5,7 +5,7 @@ import style from "./ContainerResults.module.css";
 import ContainerCard from "../Card/ContainerCard";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { sumPowerStatsTeam,changeCategorization } from "../../controllers/Home/index";
+import { sumPowerStatsTeam,changeCategorization,averageHeight,avarageWeight } from "../../controllers/Home/index";
 
 
 const ContainerResults = () => {
@@ -39,9 +39,11 @@ const ContainerResults = () => {
   };
 //HOOK
   useEffect(() => {
-   
+  
     sumPowerStatsTeam(handleSetTotalPowerStats, myTeam);
     changeCategorization(handleSetTeamCategorization)
+    averageHeight(myTeam);
+    avarageWeight(myTeam)
     
   }, [myTeam]);
 
@@ -54,8 +56,10 @@ const ContainerResults = () => {
     <div className={`container ${style.root}`}>
       <div className="row">
         <div className="col-md-6 col-lg-6">
-          <h1>Team {teamCategorization}</h1>
-          <div>
+          <div className={style.text}> 
+          {myTeam.length && <h1 >Team {teamCategorization}</h1> } 
+          </div>
+          <div className={style.serachBar}>
             <SearchBar />
           </div>
         </div>
@@ -65,8 +69,9 @@ const ContainerResults = () => {
             <Link to="/home">
               <button>View My Team</button>
             </Link>
-          ) : (
-            <PowerStats
+          ) : ( 
+            
+           myTeam.length && <PowerStats
               intelligence={totalPowerStats.intelligence}
               strength={totalPowerStats.strength}
               speed={totalPowerStats.speed}
