@@ -16,7 +16,7 @@ export const sumPowerStatsTeam = (setPowerStats,team)=>{
             powerstats[key] += parseInt(hero.powerstats[key])
         }
     })
-
+    console.log(powerstats);
     setPowerStats(powerstats);
 }
 
