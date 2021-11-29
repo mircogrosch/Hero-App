@@ -2,6 +2,7 @@ import React from "react";
 import Card from "./Card";
 import { useSelector } from "react-redux";
 import style from "./ContainerCard.module.css";
+import noTeam from '../../img/no-team.png';
 const ContainerCard = () => {
 
   const heroSearch = useSelector((state) => state.hereosSearch.results);
@@ -45,8 +46,7 @@ const ContainerCard = () => {
           </div>
         ))
       ) : (
-        <h1>You haven't a team, please search hero and add</h1>
-      )}
+        <img src={noTeam} alt="no team" width="100%" height="25%"/>)}
     </div>
   );
 };

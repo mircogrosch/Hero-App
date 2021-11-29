@@ -33,3 +33,25 @@ export const changeCategorization=(setNameCategorization)=>{
     
     
 }
+function twoDecimal(n) {
+    let t=n.toString();
+    let regex=/(\d*.\d{0,2})/;
+    return t.match(regex)[0];
+  }
+
+export const averageHeight =(team)=>{ 
+    let avaregeTotal = 0; 
+    team.forEach((hero)=>{
+        avaregeTotal += parseInt(hero.appearance.height[1])
+    })
+    return  (parseFloat(twoDecimal(avaregeTotal / team.length)))
+   
+}
+
+export const avarageWeight = (team) =>{
+    let avaregeTotal =0; 
+    team.forEach((hero)=>{
+        avaregeTotal+= parseInt(hero.appearance.weight[1]);
+    })
+    return  (parseFloat(twoDecimal(avaregeTotal / team.length)))
+}

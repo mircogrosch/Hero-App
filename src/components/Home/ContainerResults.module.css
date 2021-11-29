@@ -4,3 +4,14 @@
     border-radius: 20px;
     overflow-y: scroll;
 }
+.serachBar{
+    height: 15vh;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-end;
+}
+.text{
+    display: flex;
+    justify-content: center;
+    color:white;
+}
