@@ -1,0 +1,46 @@
+.container{ 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    width: 300px;
+    background-color: #483C50;
+    border-radius: 10px;
+}
+
+.fields{ 
+    background:none;
+    color: white;
+    font-size: 1em;
+    display: block;
+    border:none;
+    border-bottom: 1px solid white;
+    margin: 20px;
+
+}
+.fields:focus{
+    outline: none;
+
+}
+.btnPrimary{ 
+    border-radius: 8px;
+    background-color: white;
+    color:#483C50;
+    width: 200px;
+}
+.btnPrimary:hover{
+    background-color: #4e4653;
+    transition: 0.5s ease all;
+    color:white;
+    font-size: 1em;
+}
+.containerCenter{
+    display: flex;
+    justify-content: center;
+}
+.icon{ 
+    margin-bottom: 40px;
+    font-size: 2em;
+    color: white;
+}

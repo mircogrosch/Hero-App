@@ -1,0 +1,53 @@
+.cartBox {
+    margin: 100px;
+    width: 200px;
+    height: 250px;
+    position: relative;
+    perspective: 1000px;
+   
+  }
+  
+  .cartBox:hover .cart {
+      transform: rotateY(180deg);
+  }
+  
+  .cart {
+    transform-style: preserve-3d;
+    transition: all 0.8s linear;
+    
+  }
+  
+  .face {
+    position: absolute;
+    backface-visibility: hidden;
+  }
+  
+  .face.back {
+    transform: rotateY(180deg);
+  }
+  .containerHeroName{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: #212529ce;
+    padding: 5px;
+  }
+  .textName{
+    color:white;
+    font-size: 1em;
+    font-weight: bold;
+    margin: 0;
+  }
+  .button{
+    color: white;
+    background-color:#2C2133;
+    width:100%;
+    margin-top:5px;
+    border: none;
+
+  }
+  .button:hover{
+    transition: ease 0.5s all;
+    color: #483C50;
+  }

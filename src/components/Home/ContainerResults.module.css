@@ -1,0 +1,30 @@
+.root{ 
+    background-color: #483C50;
+    height: 85vh;
+    border-radius: 20px;
+    overflow-y: scroll;
+}
+.serachBar{
+    height: 15vh;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+.text{
+    display: flex;
+    color:white;
+    flex-direction: column;
+}
+.viewTeam{
+    color: white;
+    background-color:#2C2133;
+    width:100%;
+    height: 50px;
+    margin-top:5px;
+    border: none;
+
+  }
+  .viewTeam:hover{
+    transition: ease 0.5s all;
+    color: #483C50;
+  }
