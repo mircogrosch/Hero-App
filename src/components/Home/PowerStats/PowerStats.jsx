@@ -14,12 +14,12 @@ const PowerStats = ({intelligence,strength,speed,durability,power,combat,resize}
             </div>
 
             <div className={resize ? style.inputResize : style.input}>
-                <input type="range" name="intelligence" min="0" max="100" value={intelligence} disabled/>
-                <input type="range" name="strenght" min="0" max="100" value={strength} disabled/>
-                <input type="range" name="speed" min="0" max="100" value={speed} disabled/>
-                <input type="range" name="durability" min="0" max="100" value={durability} disabled/>
-                <input type="range" name="power" min="0" max="100" value={power} disabled/>
-                <input type="range" name="combat" min="0" max="100" value={combat} disabled/>
+                <input type="range" name="intelligence" min="0" max={resize ? "100" : "600"} value={intelligence} disabled/>
+                <input type="range" name="strenght" min="0" max={resize ? "100" : "600"} value={strength} disabled/>
+                <input type="range" name="speed" min="0" max={resize ? "100" : "600"} value={speed} disabled/>
+                <input type="range" name="durability" min="0" max={resize ? "100" : "600"} value={durability} disabled/>
+                <input type="range" name="power" min="0" max={resize ? "100" : "600"} value={power} disabled/>
+                <input type="range" name="combat" min="0" max={resize ? "100" : "600"} value={combat} disabled/>
             </div>
             </div>
         </div>

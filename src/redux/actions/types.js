@@ -3,6 +3,7 @@ const types={
     ADD_HERO_TO_MY_TEAM:"ADD_HERO_TO_MY_TEA",
     CLEAR_SEARCH: "CLEAR_SEARCH",
     DELETE_HERO: "DELETE_HERO",
+    GET_HERO_DETAIL: "GET_HERO_DETAIL",
 }
 
 export default types;

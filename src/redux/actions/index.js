@@ -19,6 +19,16 @@ export const getHerosByName = (heroName)=>{
         }
     }
 }
+export const getHeroDetail=(idHero) =>{
+    return async function(dispatch) { 
+        try{
+            const {data} = await axios.get(`${URL}/${idHero}`)
+            dispatch({type:types.GET_HERO_DETAIL, payload:data})
+        }catch(error){
+            console.log(error);
+        }
+    }
+}
 export const clearSearch = ()=> { 
     return {
         type: types.CLEAR_SEARCH
