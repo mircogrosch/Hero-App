@@ -1,22 +1,26 @@
 import React from "react";
 import style from "./Card.module.css";
 import PowerStats from "../Home/PowerStats/PowerStats";
-import { addHeroToMyTeam,deleteHero } from "../../redux/actions/index";
+import {
+  addHeroToMyTeam,
+  deleteHero
+} from "../../redux/actions/index";
 import { isOnMyTeam } from "../../controllers/Card";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 const Card = ({
   id,
   img,
   name,
   intelligence,
-  strenght,
+  strength,
   speed,
   durability,
   power,
   combat,
 }) => {
-    //HOOKS
+  //HOOKS
   const dispatch = useDispatch();
   const myTeam = useSelector((state) => state.myTeam);
   return (
@@ -31,7 +35,7 @@ const Card = ({
         <div className={`${style.face} ${style.back}`}>
           <PowerStats
             intelligence={intelligence}
-            strength={strenght}
+            strength={strength}
             speed={speed}
             durability={durability}
             power={power}
@@ -54,7 +58,9 @@ const Card = ({
             </button>
           )}
 
-          <button className={`${style.button}`}>View Details</button>
+          <Link to={`/detail/${id}`}>
+            <button className={`${style.button}`}>View Details</button>
+          </Link>
         </div>
       </div>
     </div>

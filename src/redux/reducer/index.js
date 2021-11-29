@@ -2,7 +2,8 @@ import types from "../actions/types";
 import { addHero,deleteHero } from "./controllers";
 const initialState = { 
     myTeam:[],
-    hereosSearch:[],   
+    hereosSearch:[],
+    heroDetail:{}   
 } 
 
 const reducer = (state=initialState, action)=>{ 
@@ -24,6 +25,11 @@ const reducer = (state=initialState, action)=>{
         case types.DELETE_HERO:{
             return{
                 ...state, myTeam:deleteHero(state.myTeam,action.payload)
+            }
+        }
+        case types.GET_HERO_DETAIL:{
+            return{
+                ...state, heroDetail:action.payload
             }
         }
 
